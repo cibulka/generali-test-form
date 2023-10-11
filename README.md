@@ -60,8 +60,6 @@ The brief does not show all the possible states of the UI, so I've decided to ad
 
 </details>
 
-<br />
-
 # 👨‍💻 More about me
 
 Visit my site on [www.cibulka.codes](https://www.cibulka.codes) or [download my resumé](https://www.cibulka.codes/en/cv.pdf). Thank you!
