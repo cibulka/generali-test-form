@@ -14,7 +14,7 @@ npm start
 # Features
 
 <details>
-    <summary>**Internationalization (i18n)**</summary>
+    <summary>**Internationalization (i18n)</b></summary>
     <br />
 
 Form contains language switcher, so it made sense to create localized version for each of the options. Each version is available on its respective link: `/cs`, `/en` and `/sk`. The base link is automatically redirected to the default language (which is Czech).
@@ -26,7 +26,7 @@ For the actual translation of the keys I use [react-i18next](https://react.i18ne
 </details>
 
 <details>
-    <summary>**Form validation**</summary>
+    <summary><b>Form validation</b></summary>
     <br />
 
 Validation of the form is handled by the [yup](https://github.com/jquense/yup) library that offers easy extension API and powerful TypeScript support.
@@ -34,7 +34,7 @@ Validation of the form is handled by the [yup](https://github.com/jquense/yup) l
 </details>
 
 <details>
-    <summary>**Phone number**</summary>
+    <summary><b>Phone number</b></summary>
     <br />
 
 Phone numbers are always a tricky thing to handle. 😊 Different phone-codes, different lengths, some people are used to adding non-numeric characters to them (such as pluses, brackets, etc.) and more.
@@ -56,7 +56,7 @@ There are certain shortcomings with this solution:
 </details>
 
 <details>
-    <summary>**MUI customization**</summary>
+    <summary><b>UI customization</b></summary>
     <br />
 
 The brief slightly adjusted the default color palette of MUI, namely:
