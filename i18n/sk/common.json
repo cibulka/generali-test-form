@@ -1,0 +1,32 @@
+{
+    "back": "Späť",
+    "form": {
+        "fields": {
+            "email": {
+                "label": "E-mail"
+            },
+            "name": {
+                "label": "Meno"
+            },
+            "phone": {
+                "label": "Telefón"
+            },
+            "lang": {
+                "label": "Hlavný jazyk",
+                "placeholder": "Vyberte hodnotu"
+            }
+        },
+        "submit": "Odoslať",
+        "validation": {
+            "default": "Toto pole nie je platné.",
+            "email": "E-mail \"{{value }}\" sa zdá byť neplatný.",
+            "phone": "\"{{value}} sa nezdá byť platné slovenské telefónne číslo.",
+            "required": "Pole {{label}} je povinné."
+        }
+    },
+    "langs": {
+        "cs": "Česky",
+        "en": "English",
+        "sk": "Slovensky"
+    }
+}

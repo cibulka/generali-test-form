@@ -1,0 +1,32 @@
+{
+    "back": "Back",
+    "form": {
+        "fields": {
+            "email": {
+                "label": "E-mail"
+            },
+            "name": {
+                "label": "Name"
+            },
+            "phone": {
+                "label": "Phone"
+            },
+            "lang": {
+                "label": "Main language",
+                "placeholder": "Select value"
+            }
+        },
+        "submit": "Submit",
+        "validation": {
+            "default": "This field is not valid.",
+            "email": "E-mail \"{{value }}\" seems to be invalid.",
+            "phone": "\"{{value}} does not seem to be a valid US phone number.",
+            "required": "Field {{label}} is required."
+        }
+    },
+    "langs": {
+        "cs": "Česky",
+        "en": "English",
+        "sk": "Slovensky"
+    }
+}

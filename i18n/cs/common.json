@@ -1,0 +1,32 @@
+{
+    "back": "Zpět",
+    "form": {
+        "fields": {
+            "email": {
+                "label": "E-mail"
+            },
+            "name": {
+                "label": "Jméno"
+            },
+            "phone": {
+                "label": "Telefon"
+            },
+            "lang": {
+                "label": "Hlavní jazyk",
+                "placeholder": "Vyberte hodnotu"
+            }
+        },
+        "submit": "Odeslat",
+        "validation": {
+            "default": "Toto pole není validní.",
+            "email": "E-mail \"{{value}}\" není v platném formátu.",
+            "phone": "\"{{value}}\" není platné české telefonní číslo.",
+            "required": "Pole {{label}} je povinné."
+        }
+    },
+    "langs": {
+        "cs": "Česky",
+        "en": "English",
+        "sk": "Slovensky"
+    }
+}
