@@ -14,7 +14,7 @@ npm start
 # Features
 
 <details>
-    <summary>Internationalization (i18n)</summary>
+    <summary>**Internationalization (i18n)**</summary>
     <br />
 
 Form contains language switcher, so it made sense to create localized version for each of the options. Each version is available on its respective link: `/cs`, `/en` and `/sk`. The base link is automatically redirected to the default language (which is Czech).
@@ -26,7 +26,7 @@ For the actual translation of the keys I use [react-i18next](https://react.i18ne
 </details>
 
 <details>
-    <summary>Form validation</summary>
+    <summary>**Form validation**</summary>
     <br />
 
 Validation of the form is handled by the [yup](https://github.com/jquense/yup) library that offers easy extension API and powerful TypeScript support.
@@ -34,21 +34,29 @@ Validation of the form is handled by the [yup](https://github.com/jquense/yup) l
 </details>
 
 <details>
-    <summary>Phone number</summary>
+    <summary>**Phone number**</summary>
     <br />
 
 Phone numbers are always a tricky thing to handle. 😊 Different phone-codes, different lengths, some people are used to adding non-numeric characters to them (such as pluses, brackets, etc.) and more.
 
-This is the compromise I've chosen: - The phone pattern is chosen by the language of the UI (both phone code and the length) - User input is masked to conventional formatting of the phone numbers (with phone code, plus and brackets) to remove ambiguity - Phone mask allows numeric characters only - Phone code is appended to the final value
+This is the compromise I've chosen:
 
-There are certain shortcomings with this solution: - User can not have different phone-codes than their chosen language version; For example users with Czech UI can not have British phone-code - User can use cell phone only (both Slovakia and UK have different lengths of landlines depending on the region)
+- The phone pattern is chosen by the language of the UI (both phone code and the length)
+- User input is masked to conventional formatting of the phone numbers (with phone code, plus and brackets) to remove ambiguity
+- Phone mask allows numeric characters only
+- Phone code is appended to the final value
+
+There are certain shortcomings with this solution:
+
+- User can not have different phone-codes than their chosen language version; For example users with Czech UI can not have British phone-code
+- User can use cell phone only (both Slovakia and UK have different lengths of landlines depending on the region)
 
 ... but I hope that for the purpose of the excercise this is enough. 😊
 
 </details>
 
 <details>
-    <summary>MUI customization</summary>
+    <summary>**MUI customization**</summary>
     <br />
 
 The brief slightly adjusted the default color palette of MUI, namely:
