@@ -4,25 +4,12 @@ import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 import { TextField } from '@mui/material';
 
 import { useFieldTextErrorMessage } from '../../components/field-text/FieldText.utils';
-import { LANG, Lang } from '../../constants/i18n';
+import { getFormatByLang } from '../../utils/phone';
 import { useAppContext } from '../../App.context';
 
 interface CustomProps {
   onChange: (value: string) => void;
   name: string;
-}
-
-function getFormatByLang(lang: Lang) {
-  switch (lang) {
-    case LANG.CS:
-      return '+(420) ### ### ###';
-    case LANG.EN:
-      return '+(1) ### ### ####';
-    case LANG.SK:
-      return '+(421) ### ### ###';
-    default:
-      return '';
-  }
 }
 
 const NumericFormatCustom = forwardRef<NumericFormatProps, CustomProps>(
@@ -47,6 +34,7 @@ export function FieldPhone<T extends FieldValues>(props: {
   control: Control<T>;
   label: string;
   name: Path<T>;
+  required?: boolean;
 }) {
   const { lang } = useAppContext();
   const getErrorMessage = useFieldTextErrorMessage(lang);
@@ -58,7 +46,7 @@ export function FieldPhone<T extends FieldValues>(props: {
       render={({ fieldState, field }) => (
         <TextField
           fullWidth
-          label={props.label}
+          label={[props.label, props.required && '*'].filter(Boolean).join(' ')}
           size="small"
           sx={{ background: 'white' }}
           {...field}

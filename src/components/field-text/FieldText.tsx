@@ -9,6 +9,7 @@ export function FieldText<T extends FieldValues>(props: {
   control: Control<T>;
   label: string;
   name: Path<T>;
+  required?: boolean;
 }) {
   const { lang } = useAppContext();
   const getErrorMessage = useFieldTextErrorMessage(lang);
@@ -19,7 +20,7 @@ export function FieldText<T extends FieldValues>(props: {
       render={({ fieldState, field }) => (
         <TextField
           fullWidth
-          label={props.label}
+          label={[props.label, props.required && '*'].filter(Boolean).join(' ')}
           size="small"
           sx={{ background: 'white' }}
           {...field}

@@ -11,6 +11,7 @@ export function useFieldTextErrorMessage(lang: Lang) {
       case 'email':
         return t('form.validation.email', { value });
       case 'phone':
+      case 'length':
         return t('form.validation.phone', { value });
       case 'required':
         return t('form.validation.required', { label });

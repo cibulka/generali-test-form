@@ -14,9 +14,10 @@ import { useLangOptions } from '../../utils/useLangOptions';
 import { useTranslationClient } from '../../utils/useTranslate';
 
 import { StyledButtonWrap, StyledContent, StyledForm, StyledWrap } from './Form.styled';
-import { schema } from './Form.validation';
+import { useSchema } from './Form.validation';
 import { FormValues } from './Form.types';
 import { FormSuccess } from './components/FormSuccess';
+import { appendPhoneCode } from '../../utils/phone';
 
 export function Form() {
   const [state, setState] = useState<State>(STATE.IDLE);
@@ -25,6 +26,7 @@ export function Form() {
   const { lang } = useAppContext();
   const options = useLangOptions(lang);
 
+  const schema = useSchema();
   const { control, formState, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       name: '',
@@ -32,12 +34,12 @@ export function Form() {
       email: '',
       lang: options[0].value,
     },
-    mode: 'onBlur',
+    mode: 'all',
     resolver: yupResolver(schema),
   });
   const { t } = useTranslationClient('common', lang);
 
-  const isInvalid = formState.isDirty && !formState.isValid;
+  const isInvalid = !formState.isValid;
   const isLoading = state === STATE.LOADING;
   const isSuccess = state === STATE.SUCCESS;
 
@@ -45,7 +47,10 @@ export function Form() {
   function onSubmit(values: FormValues) {
     if (loadingTimeout.current) clearTimeout(loadingTimeout.current);
     setState(STATE.LOADING);
-    setValues(values);
+    setValues({
+      ...values,
+      phone: appendPhoneCode(values.phone, lang),
+    });
     loadingTimeout.current = setTimeout(() => setState(STATE.SUCCESS), 1000);
   }
   useEffect(() => {
@@ -62,15 +67,21 @@ export function Form() {
           className={isSuccess ? 'is-success' : undefined}
           onSubmit={handleSubmit(onSubmit)}
         >
-          <FieldText name="name" control={control} label={t('form.fields.name.label')} />
-          <FieldPhone name="phone" control={control} label={t('form.fields.phone.label')} />
-          <FieldText name="email" control={control} label={t('form.fields.email.label')} />
+          <FieldText name="name" control={control} label={t('form.fields.name.label')} required />
+          <FieldPhone
+            name="phone"
+            control={control}
+            label={t('form.fields.phone.label')}
+            required
+          />
+          <FieldText name="email" control={control} label={t('form.fields.email.label')} required />
           <FieldSelect
             control={control}
             label={t('form.fields.lang.label')}
             placeholder={t('form.fields.lang.placeholder')}
             name="lang"
             options={options}
+            required
           />
           <StyledButtonWrap>
             <Button

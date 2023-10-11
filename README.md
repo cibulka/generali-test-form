@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# 👋 Hello, Petr Cibulka here!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my test assignment for Generali Česká pojišťovna. [Read the brief](https://github.com/cibulka/generali-test-form/tree/main/public/generali-brief.pdf).
 
-## Available Scripts
+# Install & Run
 
-In the project directory, you can run:
+Project is made with `create-react-app`, as instructed. To run it locally:
 
-### `npm start`
+```
+npm install
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<details>
+    <summary>Internationalization (i18n)</summary>
+    <br />
 
-### `npm test`
+    Form contains language switcher, so it made sense to create localized version for each of the options. Each version is available on its respective link: `/cs`, `/en` and `/sk`. The base link is automatically redirected to the default language (which is Czech).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    The routing is handled by [react-router-dom](https://reactrouter.com/en/main).
 
-### `npm run build`
+    For the actual translation of the keys I use [react-i18next](https://react.i18next.com/), which is a fully type-safe solution. The dictionaries for the translations are placed in the `/i18N` folder as JSON files (which ensures the compatibility with external tools such as [Locize.com](https://locize.com)).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+    <summary>Form validation</summary>
+    <br />
 
-### `npm run eject`
+    Validation of the form is handled by the [yup](https://github.com/jquense/yup) library that offers easy extension API and powerful TypeScript support.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+</details>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<details>
+    <summary>Phone number</summary>
+    <br />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    Phone numbers are always a tricky thing to handle. 😊 Different phone-codes, different lengths, some people are used to adding non-numeric characters to them (such as pluses, brackets, etc.) and more.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    This is the compromise I've chosen:
+    - The phone pattern is chosen by the language of the UI (both phone code and the length)
+    - User input is masked to conventional formatting of the phone numbers (with phone code, plus and brackets) to remove ambiguity
+    - Phone mask allows numeric characters only
+    - Phone code is appended to the final value
 
-## Learn More
+    There are certain shortcomings with this solution:
+    - User can not have different phone-codes than their chosen language version; For example users with Czech UI can not have British phone-code
+    - User can use cell phone only (both Slovakia and UK have different lengths of landlines depending on the region)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ... but I hope that for the purpose of the excercise this is enough. 😊
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+</details>
+
+<br />
+
+<details>
+    <summary>MUI customization</summary>
+    <br />
+
+    The brief slightly adjusted the default color palette of MUI, namely:
+    - Color of the submit button
+    - Color of selected menu options
+
+    The brief does not show all the possible states of the UI, so I've decided to adjust the MUI theme as I saw fit.
+
+</details>
+
+<br />
+
+# 👨‍💻 More about me
+
+Visit my site on [www.cibulka.codes](https://www.cibulka.codes) or [download my resumé](https://www.cibulka.codes/en/cv.pdf). Thank you!

@@ -11,6 +11,7 @@ export function FieldSelect<T extends FieldValues>(props: {
     value: string;
   }[];
   placeholder: string;
+  required?: boolean;
 }) {
   const id = useId();
   return (
@@ -19,10 +20,12 @@ export function FieldSelect<T extends FieldValues>(props: {
       name={props.name}
       render={({ field }) => (
         <FormControl size="small">
-          <InputLabel id={id}>{props.label}</InputLabel>
+          <InputLabel id={id}>
+            {[props.label, props.required && '*'].filter(Boolean).join(' ')}
+          </InputLabel>
           <Select
             labelId={id}
-            label={props.label}
+            label={[props.label, props.required && '*'].filter(Boolean).join(' ')}
             size="small"
             {...field}
             MenuProps={{
