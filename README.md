@@ -14,7 +14,7 @@ npm start
 # Features
 
 <details>
-    <summary>**Internationalization (i18n)</b></summary>
+    <summary><b>Internationalization (i18n)</b></summary>
     <br />
 
 Form contains language switcher, so it made sense to create localized version for each of the options. Each version is available on its respective link: `/cs`, `/en` and `/sk`. The base link is automatically redirected to the default language (which is Czech).
